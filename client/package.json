@@ -4,7 +4,7 @@
   "description": "client side portion",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
     "start": "node server.js"
   },
   "repository": {

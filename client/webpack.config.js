@@ -1,7 +1,9 @@
 // filename dictates output
 // path sets output directory to dist
-
 const path = require("path");
+// const webpack = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
 module.exports = {
   entry: "./src/js/index.js",
   output: {
@@ -31,4 +33,10 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./src/index.html",
+      title: "Webpack Plugin",
+    }),
+  ],
 };

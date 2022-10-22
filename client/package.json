@@ -2,10 +2,12 @@
   "name": "contact-card",
   "version": "1.0.0",
   "description": "client side portion",
-  "main": "index.js",
+  "private": "true",
   "scripts": {
     "test": "test",
-    "start": "node server.js"
+    "start": "webpack --watch",
+    "build": "webpack --mode development",
+    "dev": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
@@ -16,5 +18,19 @@
   "bugs": {
     "url": "https://github.com/EricksonVIK/contact-card/issues"
   },
-  "homepage": "https://github.com/EricksonVIK/contact-card#readme"
+  "homepage": "https://github.com/EricksonVIK/contact-card#readme",
+  "devDependencies": {
+    "@babel/core": "^7.19.6",
+    "@babel/preset-env": "^7.19.4",
+    "babel-loader": "^8.2.5",
+    "babel-polyfill": "^6.26.0",
+    "css-loader": "^6.7.1",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  },
+  "dependencies": {
+    "npm": "^8.19.2",
+    "run": "^1.4.0"
+  }
 }

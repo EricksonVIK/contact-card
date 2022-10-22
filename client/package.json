@@ -1,0 +1,19 @@
+{
+  "name": "contact-card",
+  "version": "1.0.0",
+  "description": "client side portion",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EricksonVIK/contact-card.git"
+  },
+  "author": "EricksonVik",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EricksonVIK/contact-card/issues"
+  },
+  "homepage": "https://github.com/EricksonVIK/contact-card#readme"
+}

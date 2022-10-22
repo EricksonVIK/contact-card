@@ -33,6 +33,7 @@
   "dependencies": {
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.2",
+    "idb": "^7.1.0",
     "npm": "^8.19.2",
     "run": "^1.4.0"
   }

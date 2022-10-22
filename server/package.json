@@ -1,11 +1,10 @@
 {
-  "name": "contact-card",
+  "name": "server",
   "version": "1.0.0",
-  "description": "client side portion",
+  "description": "Server side",
   "main": "index.js",
   "scripts": {
     "test": "test"
-    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/EricksonVIK/contact-card/issues"
   },
-  "homepage": "https://github.com/EricksonVIK/contact-card#readme"
+  "homepage": "https://github.com/EricksonVIK/contact-card#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }

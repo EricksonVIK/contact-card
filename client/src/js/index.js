@@ -8,8 +8,8 @@ import Bear from "../images/bear.png";
 import Dog from "../images/dog.png";
 // import CSS
 import "../css/index.css";
-// import initDB for IndexedDB
-import { initdb } from "./database";
+// import IndexedDB functions
+import { initdb, getDb, postDb } from "./database";
 // import bootstrap after npm install bootstrap && @popperjs/core
 // import { Tooltip, Toast, Popover } from "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -19,4 +19,8 @@ window.addEventListener("load", function () {
   document.getElementById("logo").src = Logo;
   document.getElementById("bearThumbnail").src = Bear;
   document.getElementById("dogThumbnail").src = Dog;
+  //Used below to test add to db
+  // getDb();
+  // postDb("erickson", "erickson@test.com", 9196727756, "Bear");
+  // getDb();
 });

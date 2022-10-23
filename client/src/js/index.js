@@ -12,7 +12,7 @@ import Dog from "../images/dog.png";
 import "../css/index.css";
 
 // import IndexedDB functions -- postDb initially found in database moved to index
-import { initdb, getDb, deleteDb, postDb, editDb } from "./database";
+import { initdb, deleteDb, postDb, editDb } from "./database";
 
 // import bootstrap after npm install bootstrap && @popperjs/core
 // import { Tooltip, Toast, Popover } from "bootstrap";
@@ -43,7 +43,7 @@ newContactButton.addEventListener("click", (event) => {
 });
 
 form.addEventListener("submit", (event) => {
-  // Handle data
+  // handle the form data
   event.preventDefault();
   let name = document.getElementById("name").value;
   let phone = document.getElementById("phone").value;
@@ -54,7 +54,17 @@ form.addEventListener("submit", (event) => {
   if (submitBtnToUpdate == false) {
     postDb(name, email, phone, profile);
   } else {
+    // Obtains values passed into the form element
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let email = document.getElementById("email").value;
+    let profile = document.querySelector('input[type="radio"]:checked').value;
+
+    // Calls the editDB function passing in any values from the form element as well as the ID of the contact that we are updating
+    editDb(profileId, name, email, phone, profile);
+
     fetchCards();
+
     // Toggles the submit button back to POST functionality
     submitBtnToUpdate = false;
   }

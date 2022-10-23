@@ -9,11 +9,6 @@ export const toggleForm = () => {
   }
 };
 
-const newContactButton = document.getElementById("new-contact");
-
-newContactButton.addEventListener('click', event => {
- toggleForm()
-})
 
 export const clearForm = () => {
   document.getElementById("name").value = "";

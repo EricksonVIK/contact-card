@@ -3,6 +3,8 @@
 const path = require("path");
 // const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+// require generte sw class of workbox
+const WorkboxPlugin = require("workbox-webpack-plugin");
 
 module.exports = {
   entry: "./src/js/index.js",
@@ -38,5 +40,6 @@ module.exports = {
       template: "./src/index.html",
       title: "Webpack Plugin",
     }),
+    new WorkboxPlugin.GenerateSW(),
   ],
 };

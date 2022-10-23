@@ -45,21 +45,6 @@ module.exports = {
       template: "./src/index.html",
       title: "Webpack Plugin",
     }),
-    // new WorkboxPlugin.GenerateSW({
-    //   // do not precache images
-    //   exclude: [/\.(?:png|jpg|jpeg|svg)$/],
-
-    //   // define runtime cacdh-first strategy
-    //   handler: "CacheFirst",
-    //   options: {
-    //     // use custom cache name
-    //     cacheName: "images",
-    //     // only cache 1 images
-    //     expiration: {
-    //       maxEntries: 1,
-    //     },
-    //   },
-    // }),
     new InjectManifest({
       swSrc: "./src/sw.js",
       swDest: "service-worker.js",

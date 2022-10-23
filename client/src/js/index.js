@@ -130,3 +130,20 @@ window.addEventListener("beforeinstallprompt", (event) => {
 window.addEventListener("appinstalled", (event) => {
   console.log("👍", "appinstalled", event);
 });
+
+const shareData = {
+    title: "Erickson Contact Cards",
+    text: "Contact Card App",
+    url: "https://pacific-woodland-23884.herokuapp.com/"
+}
+
+const shareBtn = document.getElementById("shareBtn");
+
+shareBtn.addEventListener('click', async () => {
+    try {
+        await navigator.share(shareData);
+        window.alert("App Shared!")
+    } catch (err) {
+        window.alert("Something went wrong!")
+    }
+});

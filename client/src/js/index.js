@@ -12,7 +12,7 @@ import Dog from "../images/dog.png";
 import "../css/index.css";
 
 // import IndexedDB functions -- postDb initially found in database moved to index
-import { initdb, getDb } from "./database";
+import { initdb, getDb, deleteDb, postDb } from "./database";
 
 // import bootstrap after npm install bootstrap && @popperjs/core
 // import { Tooltip, Toast, Popover } from "bootstrap";
@@ -32,28 +32,48 @@ window.addEventListener("load", function () {
   document.getElementById("dogThumbnail").src = Dog;
 });
 
-// Export a function we will use to POST to the database.
-export const postDb = async (name, email, phone, profile) => {
-  console.log("POST to the database");
-
-  // Create a connection to the database and specify the version we want to use.
-  const contactDb = await openDB("contact_db", 1);
-
-  // Create a new transaction and specify the store and data privileges.
-  const tx = contactDb.transaction("contacts", "readwrite");
-
-  // Open up the desired object store.
-  const store = tx.objectStore("contacts");
-
-  // Use the .add() method on the store and pass in the content.
-  const request = store.add({
-    name: name,
-    email: email,
-    phone: phone,
-    profile: profile,
+  // Form functionality
+  const form = document.getElementById("formToggle");
+  const newContactButton = document.getElementById("new-contact");
+  let submitBtnToUpdate = false;
+  let profileId;
+  
+  newContactButton.addEventListener('click', event => {
+    toggleForm()
+   })
+  
+  form.addEventListener('submit', event => {
+    // Handle data
+    event.preventDefault();
+  let name = document.getElementById("name").value;
+  let phone = document.getElementById("phone").value;
+  let email = document.getElementById("email").value;
+  let profile = document.querySelector('input[type="radio"]:checked').value;
+  
+    // Post form data to IndexedDB OR Edit an existing card in IndexedDB
+  if (submitBtnToUpdate == false) {
+    postDb(name, email, phone, profile);
+  } else {
+  
+    fetchCards();
+      // Toggles the submit button back to POST functionality
+    submitBtnToUpdate = false;
+  }
+  
+  // Clear form
+  clearForm();
+  // Toggle form
+  toggleForm();
+  // Reload the DOM
+  fetchCards();
   });
 
-  // Get confirmation of the request.
-  const result = await request;
-  console.log("🚀 - data saved to the database", result);
+// delete function
+window.deleteCard = (e) => {
+  // grab id from button element attached to card
+  let id = parseInt(e.id);
+  // delete card
+  deleteDb(id);
+  // reload the dom
+  fetchCards();
 };
